@@ -1,4 +1,7 @@
-FROM ghcr.io/illallangi/python:v0.0.3
-RUN python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel
-RUN python3 -m pip install jinja2-cli[yaml]
+FROM ghcr.io/illallangi/python:v0.0.4
+
+RUN DEBIAN_FRONTEND=noninteractive \
+  python3 -m pip install --no-cache-dir \
+    jinja2-cli[yaml]==0.8.2
+
 ENTRYPOINT [ "jinja2" ]
